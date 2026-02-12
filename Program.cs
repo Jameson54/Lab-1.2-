@@ -1,38 +1,39 @@
 ﻿using System;
 
-class Program {
-  static void Main() {
-    int PowerResult = 1;
-    int LoopCounter = 0; LoopCounter
+class Program
+{
+  static void Main()
+  {
+    int valueA, exponentValue, powerResult, inputValue, secondDigit, firstDigit, remainingPart, modifiedNumber, finalAnswer, temporary, numberOfDigits;
 
-    Console.WriteLine("Task 1");
-    Console.Write("Enter A: ");
-    int ValueA = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Task 1 \nEnter A: ");
+
+    valueA = Convert.ToInt32(Console.ReadLine());
     Console.Write("Enter N: ");
-    int ExponentValue = Convert.ToInt32(Console.ReadLine());
+    exponentValue = Convert.ToInt32(Console.ReadLine());
 
-    for (LoopCounter = 0; LoopCounter < ExponentValue; ++LoopCounter) PowerResult *= ValueA;
-    Console.WriteLine($"{ValueA}^{ExponentValue} = {PowerResult}");
+    powerResult = 1;
 
-    Console.WriteLine("\nTask 2");
-    Console.Write("Enter x (>=100): ");
-    int InputValue = Convert.ToInt32(Console.ReadLine());
+    for (int LoopCounter = 0; LoopCounter < exponentValue; ++LoopCounter) powerResult *= valueA;
+    Console.WriteLine($"{valueA}^{exponentValue} = {powerResult}");
 
-    int temporary = InputValue;
-    int NumberOfDigits = 0;
-    while (temporary > 0) {
-      temporary /= 10; ++NumberOfDigits;
+    Console.WriteLine("\nTask 2 \nEnter x (>=100): ");
+    inputValue = Convert.ToInt32(Console.ReadLine());
+
+    temporary = inputValue;
+    numberOfDigits = 0;
+
+    while (temporary > 0)
+    {
+    temporary /= 10; ++numberOfDigits;
     }
 
-    int SecondDigit, FinalAnswer, ModifiedNumber, RemainingPart, FirstDigit;
-    
-    SecondDigit = (InputValue / (int)Math.Pow(10, NumberOfDigits - 2)) % 10;
-    FirstDigit = InputValue / (int)Math.Pow(10, NumberOfDigits - 1);
-    RemainingPart = InputValue % (int)Math.Pow(10, NumberOfDigits - 2);
-    ModifiedNumber = FirstDigit * (int)Math.Pow(10, NumberOfDigits - 2) + RemainingPart;
-    FinalAnswer = ModifiedNumber * 10 + SecondDigit;
+    secondDigit = (inputValue / (int)Math.Pow(10, numberOfDigits - 2)) % 10;
+    firstDigit = inputValue / (int)Math.Pow(10, numberOfDigits - 1);
+    remainingPart = inputValue % (int)Math.Pow(10, numberOfDigits - 2);
+    modifiedNumber = firstDigit * (int)Math.Pow(10, numberOfDigits - 2) + remainingPart;
+    finalAnswer = modifiedNumber * 10 + secondDigit;
 
-    Console.WriteLine($"x = {InputValue}");
-    Console.WriteLine($"Result n = {FinalAnswer}");
+    Console.WriteLine($"x = {inputValue}\nResult n = {finalAnswer}");
   }
 }
